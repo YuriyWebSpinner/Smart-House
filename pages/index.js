@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
@@ -65,8 +66,18 @@ export default function Index() {
     zal2: false,
   });
 
-  const handleChange = (event) => {
+  const handleChange = async (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
+    let url = '151.248.121.23';
+    url = 'localhost';
+    let config = {
+      params: {
+        ...state
+      },
+    }    
+    console.log(config);
+    const res = await axios.get(`http://${url}:3000/api/fileChanged`, config);
+    console.log(res);
   };
 
   return (
