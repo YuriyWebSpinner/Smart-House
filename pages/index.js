@@ -69,7 +69,7 @@ export default function Index() {
   const handleChange = async (event) => {
     setState({ ...state, [event.target.name]: event.target.checked });
     let url = '151.248.121.23';
-    //url = 'localhost';
+    url = 'localhost';
     let config = {
       params: {
         ...state
