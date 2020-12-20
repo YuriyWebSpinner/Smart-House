@@ -1,14 +1,14 @@
 const { createServer } = require('http')
 const next = require('next')
 
-const port = parseInt(process.env.PORT, 10) || 3000
-const dev = process.env.NODE_ENV !== 'production'
+const port = 3000
+const dev = 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
 app.prepare().then(() => {
   createServer((req, res) => {
-    const parsedUrl = new URL(req.url, 'http://w.w')
+    const parsedUrl = new URL(req.url, 'http://151.248.121.23')
     const { pathname, query } = parsedUrl
 
     if (pathname === '/a') {
