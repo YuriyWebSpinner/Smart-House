@@ -11,6 +11,7 @@
     "@material-ui/core": "next",
     "clsx": "latest",
     "create-emotion-server": "latest",
+    "http": "^0.0.1-security",
     "next": "latest",
     "prop-types": "latest",
     "react": "latest",
