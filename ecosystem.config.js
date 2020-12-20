@@ -1,7 +1,7 @@
 module.exports = {
     apps : [{
       name: "smart house",
-      script: "next build",
+      script: "node server.js",
       env: {
         PORT: 3001,
         NODE_ENV: "development",
