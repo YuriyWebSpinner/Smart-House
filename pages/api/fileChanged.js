@@ -1,14 +1,24 @@
 const fs = require('fs');
 
+function saveFileSync(path, data) {
+    let list = path.split(/[\\\/]/);
+    let filename = list.pop();
+    let filepath = list.join('/');
+    fs.mkdirSync(filepath, { recursive: true }, (err) => {
+        if (err) throw err;
+    });
+    fs.writeFileSync(path, data);
+}
+
 const saveData = (name, obj) => {
-    fs.writeFileSync(name, JSON.stringify(obj));
+    saveFileSync(name, JSON.stringify(obj));
 }
 
 export default (req, res) => {
     const {
         query = {}
     } = req;
-    saveData('./lightData.json', query);
+    saveData('res-json/lightData.json', query);
     res.statusCode = 200;
     res.json({ status: 'success' });
 };
