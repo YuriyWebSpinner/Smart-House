@@ -66,18 +66,17 @@ export default function Index() {
     zal2: false,
   });
 
-  const handleChange = async (event) => {
-    setState({ ...state, [event.target.name]: event.target.checked });
+  const handleChange = (event) => {
+    const newState = { ...state, [event.target.name]: event.target.checked };
+    setState(newState);
     let url = '151.248.121.23';
     //url = 'localhost';
     let config = {
       params: {
-        ...state
+        ...newState
       },
-    }    
-    console.log(config);
-    const res = await axios.get(`http://${url}:3000/api/fileChanged`, config);
-    console.log(res);
+    }
+    axios.get(`http://${url}:3000/api/fileChanged`, config);
   };
 
   return (
