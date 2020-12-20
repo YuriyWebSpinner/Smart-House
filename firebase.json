@@ -1,0 +1,6 @@
+{
+    "database" : {
+        "rules" : "database.rules",
+        "indexes" : "databes.indexes.json"
+    }
+}
